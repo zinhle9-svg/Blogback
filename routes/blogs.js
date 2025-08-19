@@ -18,4 +18,4 @@ let blogs = [
 ];
 
 
-module.export = blogs;
+module.exports = blogs;
