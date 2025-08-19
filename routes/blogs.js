@@ -1,4 +1,4 @@
-let blogs = [
+let Blogs = [
   {
     title: 'Cars',
     category: 'luxury',
@@ -18,4 +18,4 @@ let blogs = [
 ];
 
 
-module.exports = blogs;
+export default Blogs;

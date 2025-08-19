@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const PORT = process.env.PORT || 4000;
 const app = express();
-const blogs = require("./routes/blogs");
+const blogs = require("./routes/blogs").default;
 
 app.use(cors());
 app.use(express.json());
