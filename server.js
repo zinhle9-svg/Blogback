@@ -34,9 +34,16 @@ app.post("/createBlog", (req, res) => {
 });
 
 // delete a blog
-app.delete("/blogs/:id", (req, res) => {
+app.delete("/api/blogs/:id", (req, res) => {
   const blogIndex = blogs.findIndex((b) => b.id === parseInt(req.params.id));
+  if (blogIndex === -1) {
+    return res.status(404).json({ error: "Blog not found" });
+  }
+
+  const deleted = blogs.slice(blogIndex, 1);
+  res.json({ message: "Blog deleted", blog: deleted[0] });
 });
+
 
 // where the server should run
 app.listen(PORT, () => {
