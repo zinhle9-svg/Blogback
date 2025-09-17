@@ -38,6 +38,27 @@ app.post("/createBlog", (req, res) => {
 
   res.status(201).json(newBlog);
 });
+//edit a post
+
+app.put("/api/blogs/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  // const { title, category, content } = req.body;
+  const blogIndex = blogs.findIndex((b) => b.id === id);
+  if (blogIndex === -1) {
+    return res.status(404).json({ error: "Blog not found" });
+  }
+  if (!title || !category || !content) {
+    return res.status(400).json({ error: "All fields required" });
+  }
+  blogs[blogIndex] = {
+    ...blogs[blogIndex], // keep old data in case you add more fields later
+    title,
+    category,
+    content,
+  };
+
+  res.json({ message: "Blog updated", blog: blogs[blogIndex] });
+});
 
 
 // delete a blog
