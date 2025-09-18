@@ -11,7 +11,7 @@ app.use(express.json());
 
 // to get content of a specific blog from the front end
 // do i need to use [1] to get specific content, if i have my blog information as an array of objects?
-app.get("/", (req, res) => {
+app.get("/blogs", (req, res) => {
   if (blogs.length === 0) {
     res.json("No blogs found");
   } else {
@@ -24,7 +24,7 @@ app.post("/createBlog", (req, res) => {
   const { title, category, content } = req.body;
 
   if (!title || !category || !content) {
-    return res.status(400).json({ error: "All fields required" }); // stop execution here
+    return res.status(400).json({ error: "All fields required" }); 
   }
 
   const newBlog = {
@@ -42,7 +42,7 @@ app.post("/createBlog", (req, res) => {
 
 app.put("/api/blogs/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  // const { title, category, content } = req.body;
+  const { title, category, content } = req.body;
   const blogIndex = blogs.findIndex((b) => b.id === id);
   if (blogIndex === -1) {
     return res.status(404).json({ error: "Blog not found" });
@@ -51,7 +51,7 @@ app.put("/api/blogs/:id", (req, res) => {
     return res.status(400).json({ error: "All fields required" });
   }
   blogs[blogIndex] = {
-    ...blogs[blogIndex], // keep old data in case you add more fields later
+    ...blogs[blogIndex], 
     title,
     category,
     content,
@@ -62,14 +62,18 @@ app.put("/api/blogs/:id", (req, res) => {
 
 
 // delete a blog
-app.delete("/api/blogs/:index", (req, res) => {
-  const blogIndex = blogs.findIndex((b) => b.index === parseInt(req.params.index));
+app.delete("/api/blogs/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const blogIndex = blogs.findIndex((b) => b.id === id);
+
   if (blogIndex === -1) {
     return res.status(404).json({ error: "Blog not found" });
   }
-  const deleted = blogs.slice(blogIndex, 1);
+
+  const deleted = blogs.splice(blogIndex, 1); 
   res.json({ message: "Blog deleted", blog: deleted[0] });
 });
+
 
 
 // where the server should run
