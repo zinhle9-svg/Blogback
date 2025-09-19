@@ -11,7 +11,7 @@ app.use(express.json());
 
 // to get content of a specific blog from the front end
 // do i need to use [1] to get specific content, if i have my blog information as an array of objects?
-app.get("/blogs", (req, res) => {
+app.get("/api/blogs", (req, res) => {
   if (blogs.length === 0) {
     res.json("No blogs found");
   } else {
