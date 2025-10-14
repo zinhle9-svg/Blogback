@@ -2,25 +2,26 @@ const express = require("express");
 const cors = require("cors");
 const PORT = process.env.PORT || 4000;
 const app = express();
-const blogs = require("./routes/blogs").default;
+const blogs = require("./routes/blogs");
+const bodyParser = require("body-parser");
 
-app.use(cors());
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 
-
-
+app.use(bodyParser.json());
 // to get content of a specific blog from the front end
 // do i need to use [1] to get specific content, if i have my blog information as an array of objects?
 app.get("/api/blogs", (req, res) => {
   if (blogs.length === 0) {
     res.json("No blogs found");
   } else {
-    res.json(blogs[1]);
+    res.json(blogs);
   }
 });
 
 // create a new blog
 app.post("/createBlog", (req, res) => {
+
   const { title, category, content } = req.body;
 
   if (!title || !category || !content) {

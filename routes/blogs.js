@@ -1,5 +1,6 @@
 const Blogs = [
   {
+    id: 1,
     title: 'Cars',
     category: 'luxury',
     content: `Cars have evolved far beyond simple modes of transportation, 
@@ -9,6 +10,7 @@ const Blogs = [
       keeping automotive history alive.`
   },
   {
+    id: 2,
     title: 'Books',
     category: 'education',
     content: `Books are timeless treasures that offer knowledge, entertainment, and inspiration across generations. 
