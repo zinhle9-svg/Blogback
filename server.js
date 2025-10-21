@@ -5,6 +5,8 @@ const app = express();
 const blogs = require("./routes/blogs");
 const bodyParser = require("body-parser");
 
+// C:\Documents\Blogback\images\fashion.jpg
+
 app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 
