@@ -4,13 +4,15 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 const blogs = require("./routes/blogs");
 const bodyParser = require("body-parser");
+// const path = require("path");
 
 // C:\Documents\Blogback\images\fashion.jpg
 
 app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
-
+app.use(express.static("public"));
 app.use(bodyParser.json());
+// app.use(express.static(path.join(__dirname, "images")));
 // to get content of a specific blog from the front end
 // do i need to use [1] to get specific content, if i have my blog information as an array of objects?
 app.get("/api/blogs", (req, res) => {
@@ -73,7 +75,7 @@ app.delete("/api/blogs/:id", (req, res) => {
     return res.status(404).json({ error: "Blog not found" });
   }
 
-  const deleted = blogs.splice(blogIndex, 1); 
+  const deleted = blogs.splice(blogIndex); 
   res.json({ message: "Blog deleted", blog: deleted[0] });
 });
 

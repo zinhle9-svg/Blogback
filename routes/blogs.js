@@ -6,7 +6,7 @@ const Blogs = [
     id: 1,
     blogName: 'Cars',
     category: 'luxury',
-    image: "../images/fashion.jpg",
+    image: "/images/fashion.jpg",
     author: 'John Doe',
     date: '2025-06-15',
     content: `Cars have evolved far beyond simple modes of transportation, 
@@ -19,7 +19,7 @@ const Blogs = [
     id: 2,
     blogName: 'Books',
     category: 'education',
-    image: '../images/food.jpg',
+    image: '/images/food.jpg',
     author: 'Jane Smith',
     date: '2025-06-20',
     content: `Books are timeless treasures that offer knowledge, entertainment, and inspiration across generations. 
