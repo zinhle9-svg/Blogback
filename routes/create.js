@@ -1,23 +1,16 @@
+const Blogs = require("../data/blogs");
 const express = require("express");
 const router = express.Router();
-const blogs = require("../routes/blogs");
 
-router.post("/blogs", (req, res) => {
-  const { title, category, content } = req.body;
 
-  if (!title || !category || !content) {
-    return res.status(400).json({ error: "All fields required" });
-  }
-
+router.post("/", (req, res) => {
   const newBlog = {
-    id: Date.now(),
-    title,
-    category,
-    content,
+    id: Blogs.length + 1,
+    ...req.body
   };
 
-  blogs.push(newBlog);
-  res.status(201).json(newBlog);
+  Blogs.push(newBlog);
+  res.json(newBlog);
 });
 
 module.exports = router;

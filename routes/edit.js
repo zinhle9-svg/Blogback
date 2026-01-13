@@ -1,17 +1,17 @@
+const Blogs = require("../data/blogs");
 const express = require("express");
 const router = express.Router();
-const blogs = require("../routes/blogs");
+
 
 router.put("/:id", (req, res) => {
-  const id = Number(req.params.id);
-  const blog = blogs.find(b => b.id === id);
+  const id = parseInt(req.params.id);
+  const blog = Blogs.find(b => b.id === id);
 
-  if (!blog) return res.status(404).json({ error: "Blog not found" });
+  if (!blog) {
+    return res.status(404).json({ message: "Blog not found" });
+  }
 
-  blog.title = req.body.title;
-  blog.category = req.body.category;
-  blog.content = req.body.content;
-
+  Object.assign(blog, req.body);
   res.json(blog);
 });
 

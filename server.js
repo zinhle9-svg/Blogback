@@ -8,7 +8,9 @@ app.use("/images", express.static("images"));
 
 app.use("/api/blogs", require("./routes/get"));
 app.use("/api/blogs", require("./routes/create"));
-app.use("/api/blogs", require("./routes/delete"));
 app.use("/api/blogs", require("./routes/edit"));
+app.use("/api/blogs", require("./routes/delete"));
 
-app.listen(4000, () => console.log("Server running on port 4000"));
+app.listen(4000, () => {
+  console.log("Server running on port 4000");
+});

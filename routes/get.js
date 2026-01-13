@@ -1,8 +1,9 @@
+const Blogs = require("../data/blogs");
 const express = require("express");
 const router = express.Router();
-const Blogs = require("../Data/blogs");
 
-router.get("/api/blogs", (req, res) => {
+
+router.get("/", (req, res) => {
   res.json(Blogs);
 });
 
