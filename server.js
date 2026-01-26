@@ -1,10 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const bodyParser = require("body-parser");
 
 app.use(cors());
+app.use(bodyParser.json());
 app.use(express.json());
-app.use("/images", express.static("images"));
+app.use( express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/blogs", require("./routes/get"));
 app.use("/api/blogs", require("./routes/create"));
