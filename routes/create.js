@@ -3,9 +3,8 @@ const express = require("express");
 const router = express.Router();
 
 
-router.post("/upload", (req, res) => {
-  res.send("File uploaded successfully");
-  console.log(req);
+router.post("/", (req, res) => {
+    console.log(req);
   const newBlog = {
     id: Blogs.length + 1,
     ...req.body
