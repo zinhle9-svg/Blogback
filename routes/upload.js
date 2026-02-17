@@ -1,14 +1,19 @@
-const express = require('express')
-const multer  = require('multer')
-const upload = multer({ dest: 'public/images/' })
+const express = require('express');
+const multer = require('multer');
+
 const router = express.Router();
 
+// storage location
+const upload = multer({ dest: 'public/images/' });
 
-router.post('/api/upload', (req,res ) => {
-
-})
+// upload route
 router.post('/public/images', upload.single('pic1'), (req, res) => {
-  res.send('File uploaded successfully')
-})
+
+  if (!req.file) {
+    return res.status(400).send('No file uploaded');
+  }
+
+  res.send('File uploaded successfully');
+});
 
 module.exports = router;
