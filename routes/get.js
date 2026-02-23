@@ -1,10 +1,14 @@
-const Blogs = require("../data/blogs");
 const express = require("express");
 const router = express.Router();
+const fs = require("fs");
+const path = require("path");
 
+const dbPath = path.join(__dirname, "../data/blogs.js");
 
+// GET all blogs
 router.get("/", (req, res) => {
-  res.json(Blogs);
+  const blogs = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
+  res.json(blogs);
 });
 
 module.exports = router;
