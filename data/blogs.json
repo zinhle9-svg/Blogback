@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": "1771888754752",
+    "blogName": "zee",
+    "category": "Tech",
+    "author": "zee",
+    "publicationDate": "2026-03-04",
+    "content": "3rd blog",
+    "image": "/images/1771888754729-448140222.webp"
+  },
+  {
+    "id": "1771888787171",
+    "blogName": "zee",
+    "category": "Tech",
+    "author": "zee",
+    "publicationDate": "2026-03-04",
+    "content": "my 4th blog",
+    "image": "/images/1771888787154-793588265.jpeg"
+  }
+]

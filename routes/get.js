@@ -3,7 +3,7 @@ const router = express.Router();
 const fs = require("fs");
 const path = require("path");
 
-const dbPath = path.join(__dirname, "../data/blogs.js");
+const dbPath = path.join(__dirname, "../data/blogs.json");
 
 // GET all blogs
 router.get("/", (req, res) => {
