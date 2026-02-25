@@ -9,12 +9,30 @@
     "image": "/images/1771888754729-448140222.webp"
   },
   {
-    "id": "1771888787171",
-    "blogName": "zee",
-    "category": "Tech",
-    "author": "zee",
-    "publicationDate": "2026-03-04",
-    "content": "my 4th blog",
-    "image": "/images/1771888787154-793588265.jpeg"
+    "id": "1771941326091",
+    "blogName": "Sneaker ",
+    "category": "Fashion",
+    "author": "Zinhle",
+    "publicationDate": "2026-02-25",
+    "content": "My first blog!",
+    "image": "/images/1771941326037-316439853.webp"
+  },
+  {
+    "id": "1771941401043",
+    "blogName": "Sneaker ",
+    "category": "Cars",
+    "author": "Zinhle",
+    "publicationDate": "2026-02-25",
+    "content": "test",
+    "image": "/images/1771941401035-560222158.webp"
+  },
+  {
+    "id": "1771944155442",
+    "blogName": "a cup",
+    "category": "Food",
+    "author": "Zinhle",
+    "publicationDate": "2026-02-25",
+    "content": "my nice cup",
+    "image": "/images/1771944155400-67821686.webp"
   }
 ]
