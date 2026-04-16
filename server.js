@@ -4,13 +4,15 @@ const app = express();
 const bodyParser = require("body-parser");
 const { Pool } = require("pg");
 
-// ======= DATABASE CONNECTION =======
+// Database connection
+
 const pool = new Pool({
   user: "postgres",
   host: "localhost",
-  database: "blogback",
-  password: "Busisiwe@9",  // 👈 change this to your postgres password
+  database: "Blogback",
+  password: "Busisiwe@9",
   port: 5432,
+
 });
 
 // Test the connection
@@ -22,7 +24,6 @@ pool.connect((err, client, release) => {
     release();
   }
 });
-// ===================================
 
 // middleware
 app.use(bodyParser.json());
