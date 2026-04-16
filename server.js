@@ -2,6 +2,27 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const bodyParser = require("body-parser");
+const { Pool } = require("pg");
+
+// ======= DATABASE CONNECTION =======
+const pool = new Pool({
+  user: "postgres",
+  host: "localhost",
+  database: "blogback",
+  password: "Busisiwe@9",  // 👈 change this to your postgres password
+  port: 5432,
+});
+
+// Test the connection
+pool.connect((err, client, release) => {
+  if (err) {
+    console.error("❌ Database connection failed:", err.message);
+  } else {
+    console.log("✅ Connected to PostgreSQL database");
+    release();
+  }
+});
+// ===================================
 
 // middleware
 app.use(bodyParser.json());
@@ -23,3 +44,5 @@ app.use("/api/blogs", require("./routes/upload"));
 app.listen(4000, () => {
   console.log("Server running on port 4000");
 });
+
+module.exports = { pool };
